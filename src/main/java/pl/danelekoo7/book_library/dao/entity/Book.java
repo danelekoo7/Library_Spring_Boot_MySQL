@@ -9,12 +9,14 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
-   private String isbn;
-   private String title;
-   private String author;
-   private String publisher;
-   private String type;
+    private Long id;
+    @Column(unique = true)
+    private String isbn;
+    @Column(unique = true)
+    private String title;
+    private String author;
+    private String publisher;
+    private String type;
 
     public Book(long id, String isbn, String title, String author, String publisher, String type) {
         this.id = id;
@@ -25,14 +27,15 @@ public class Book {
         this.type = type;
     }
 
+
     public Book() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
