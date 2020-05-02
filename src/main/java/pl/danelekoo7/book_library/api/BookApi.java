@@ -7,7 +7,6 @@ import pl.danelekoo7.book_library.manager.BookService;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:63342", maxAge = 3600)
 @RestController
 @RequestMapping("/books")
 public class BookApi {
