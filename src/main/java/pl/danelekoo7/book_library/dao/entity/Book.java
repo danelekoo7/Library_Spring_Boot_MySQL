@@ -10,9 +10,8 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
     private String isbn;
-    @Column(unique = true)
+    @Column(nullable = false)
     private String title;
     private String author;
     private String publisher;
@@ -27,6 +26,13 @@ public class Book {
         this.type = type;
     }
 
+    public Book(String isbn, String title, String author, String publisher, String type) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.type = type;
+    }
 
     public Book() {
     }
