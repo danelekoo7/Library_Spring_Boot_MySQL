@@ -29,12 +29,14 @@ public class BookApi {
 
     @PostMapping
     public void add(@RequestBody Book book) {
+
         bookService.save(book);
     }
 
-    @PutMapping()
-    public void put(@RequestBody Book book) {
-        bookService.save(book);
+    @PutMapping("{id}")
+    public void put( @ PathVariable Long id, @RequestBody Book book) {
+
+        bookService.update(id, book);
     }
 
     @DeleteMapping("{id}")

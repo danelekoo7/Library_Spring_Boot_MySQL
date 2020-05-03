@@ -28,12 +28,29 @@ public class DbBookService implements BookService {
     }
 
     @Override
-    public void save(Book book) {
-        bookRepo.save(book);
+    public Book save(Book book) {
+        return bookRepo.save(book);
+    }
+
+    @Override
+    public Book update(Long id, Book book) {
+        return bookRepo.findById(id)
+                .map(newBook -> {
+                    newBook.setTitle(book.getTitle());
+                    newBook.setAuthor(book.getAuthor());
+                    newBook.setPublisher(book.getPublisher());
+                    newBook.setIsbn(book.getIsbn());
+                    newBook.setType(book.getType());
+                    return bookRepo.save(newBook);
+                })
+                .orElseGet(() -> {
+                    book.setId(id);
+                    return bookRepo.save(book);
+                });
     }
 
     @Override
     public void delete(Long id) {
-      bookRepo.deleteById(id);
+        bookRepo.deleteById(id);
     }
 }
