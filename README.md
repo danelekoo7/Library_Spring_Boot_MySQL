@@ -4,16 +4,15 @@ https://library-backend-app.herokuapp.com/books - here is working application.
 
 Endpoint description below:
 
-1)
-    URL
+
+*    URL
     /books
 
     Method:
     GET | POST
 
 
-2)
-    URL
+*    URL
     /books/id
 
     Method:
