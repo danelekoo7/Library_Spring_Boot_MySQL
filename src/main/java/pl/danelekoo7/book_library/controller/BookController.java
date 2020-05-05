@@ -1,4 +1,4 @@
-package pl.danelekoo7.book_library.api;
+package pl.danelekoo7.book_library.controller;
 
 
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +9,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
-public class BookApi {
+public class BookController {
 
     private final BookService bookService;
 
-    public BookApi(BookService bookService) {
+    public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
